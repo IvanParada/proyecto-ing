@@ -10,7 +10,7 @@ const UserSchema = new Schema({
         required: true
     },
     rut:{
-        type: Number,
+        type: String,
         required: true
     },
     solicitud:{
