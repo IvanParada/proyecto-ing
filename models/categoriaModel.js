@@ -12,6 +12,14 @@ const CategoriaSchema = new Schema({
     disponibilidad:{
         type: String,
         required: true
+    },
+    descripcion:{
+        type: String,
+        required: true
+    },
+    estado:{
+        type: String,
+        required: true
     }
 })
 

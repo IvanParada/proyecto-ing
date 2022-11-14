@@ -1,12 +1,13 @@
 const userModel = require('../models/userModel');
 
 const createUser  = (req, res) => {
-    const {nombres, apellidos, rut, solicitud} = req.body;
+    const {nombres, apellidos, rut, solicitud,estado} = req.body;
     const newUser = new userModel({
         nombres,
         apellidos,
         rut,
-        solicitud
+        solicitud,
+        estado
     });
     newUser.save((err, userModel) => {
         if (err) {

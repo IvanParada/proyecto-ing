@@ -9,7 +9,12 @@ const ReservaSchema =  new Schema({
         type: Number,
         required: true
     },
-    hora_fin:{
+    cant_horas:{
+        type: Number,
+        required: true,
+        max: 6
+    },
+    cant_personas:{
         type: Number,
         required: true
     },

@@ -1,11 +1,13 @@
 const categoriaModel = require('../models/categoriaModel');
 
 const createCategoria  = (req, res) => {
-    const {tipo, aforo, disponibilidad} = req.body;
+    const {tipo, aforo, disponibilidad, descripcion, estado} = req.body;
     const newCategoria = new categoriaModel({
         tipo,
         aforo,
-        disponibilidad
+        disponibilidad,
+        descripcion,
+        estado
     });
     newCategoria.save((err, categoriaModel) => {
         if (err) {

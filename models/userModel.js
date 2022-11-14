@@ -16,6 +16,11 @@ const UserSchema = new Schema({
     solicitud:{
         type: String,
         required: true
+    },
+    estado:{
+        type: String,
+        enum: ['Restringido','Autorizado'],
+        required:false 
     }
 })
 

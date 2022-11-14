@@ -2,11 +2,12 @@ const reservaModel = require('../models/reservaModel');
 
 
 const createReserva = (req, res) => {
-    const {fecha, hora_inicio, hora_fin, tipoID, userID } = req.body
+    const {fecha, hora_inicio, cant_horas,cant_personas, tipoID, userID } = req.body
     const newReserva = new reservaModel({
         fecha,
         hora_inicio,
-        hora_fin,
+        cant_horas,
+        cant_personas,
         tipoID,
         userID
     });
