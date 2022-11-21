@@ -14,13 +14,13 @@ const UserSchema = new Schema({
         required: true
     },
     solicitud:{
-        type: String,
-        required: true
+        type: Schema.ObjectId,
+        required: 'solicitudModel'
     },
     estado:{
         type: String,
         enum: ['Restringido','Autorizado'],
-        required:false 
+        required:true 
     }
 })
 

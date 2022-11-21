@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ReservaSchema =  new Schema({
     fecha:{
-        type: Number,
+        type: Date,
         required: true,
     },
     hora_inicio:{
-        type: Number,
+        type: Date,
         required: true
     },
     cant_horas:{
@@ -26,7 +26,6 @@ const ReservaSchema =  new Schema({
         type: Schema.ObjectId,
         ref: 'userModel'
     }
-
 })
 
 module.exports = mongoose.model('reserva', ReservaSchema);

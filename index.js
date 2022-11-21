@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const app = express();
 const userRoutes = require('./routes/userRoutes');
-const categoriaRoutes = require('./routes/categoriaRoutes');
+const espacioComunRoutes = require('./routes/espacioComunRoutes');
 const reservaRoutes = require('./routes/reservaRoutes');
 
 app.use(cors());
@@ -13,7 +13,7 @@ app.use(express.json());
 app.options('*', cors());
 
 app.use('/api', userRoutes);
-app.use('/api', categoriaRoutes);
+app.use('/api', espacioComunRoutes);
 app.use('/api', reservaRoutes);
 
 
