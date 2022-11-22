@@ -11,6 +11,7 @@ const espacioComunSchema = new Schema({
     },
     disponibilidad:{
         type: String,
+        enum: ['Disponible','No disponible'],
         required: true
     },
     descripcion:{

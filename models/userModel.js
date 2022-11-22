@@ -13,14 +13,15 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    solicitud:{
-        type: Schema.ObjectId,
-        required: 'solicitudModel'
-    },
     estado:{
         type: String,
         enum: ['Restringido','Autorizado'],
         required:true 
+    },
+    tipoUsuario:{
+        type:String,
+        enum:['Usuario','Administrador'],
+        required:true
     }
 })
 
