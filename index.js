@@ -8,6 +8,7 @@ const userRoutes = require('./routes/userRoutes');
 const espacioComunRoutes = require('./routes/espacioComunRoutes');
 const reservaRoutes = require('./routes/reservaRoutes');
 
+
 app.use(cors());
 app.use(express.json());
 app.options('*', cors());
