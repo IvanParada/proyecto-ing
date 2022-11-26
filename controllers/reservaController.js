@@ -2,14 +2,14 @@ const reservaModel = require('../models/reservaModel');
 
 
 const createReserva = (req, res) => {
-    const {fecha, hora_inicio, cant_horas,cant_personas, tipoID, userID } = req.body
+    const {fecha, hora_inicio, cant_horas,cant_personas, espacioId, userId } = req.body
     const newReserva = new reservaModel({
         fecha,
         hora_inicio,
         cant_horas,
         cant_personas,
-        tipoID,
-        userID
+        espacioId,
+        userId
     });
     newReserva.save((err, reservaModel)=>{
         if(err){
@@ -20,17 +20,17 @@ const createReserva = (req, res) => {
 }
 
 const getReservas = (req , res) => {
-    reservaModel.find({},(err, reservaModels)=> {
+    reservaModel.find({}).populate({path:'espacioId userId'}).exec((err,reservaModels) => {
         if(err){
             return res.status(400).send({ message: " No se ha podido obtener los registros de reservas"})
         }
         return res.status(201).send(reservaModels)
-    });
+    })
 }
 
 const getSpecificReserva = (req, res) => {
-    const{id} = req.params
-    reservaModel.findById(id,(err,reservaModels) => {
+    const{id} = req.params;
+    reservaModel.findById(id).populate({path:'espacioId userId'}).exec((err,reservaModels)=> {
         if(err){
             return res.status(400).send({message: "No se ha podido obtener el registro de la reserva"})
         }
@@ -38,7 +38,7 @@ const getSpecificReserva = (req, res) => {
             return res.status(404).send({message:"Reserva no encontrada"})
         }
         return res.status(201).send(reservaModels)
-    });
+    })
 }
 
 const updateReserva = (req, res) => {
@@ -52,7 +52,6 @@ const updateReserva = (req, res) => {
         }
         return res.status(200).send(reservaModels)
     });
-    
 }
 
 const deleteReserva = (req, res) => {
@@ -66,7 +65,6 @@ const deleteReserva = (req, res) => {
         }
         return res.status(200).send(reservaModels)
     });
-    
 }
 
 module.exports = {

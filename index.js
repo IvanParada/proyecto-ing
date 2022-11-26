@@ -13,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.options('*', cors());
 
+
 app.use('/api', userRoutes);
 app.use('/api', espacioComunRoutes);
 app.use('/api', reservaRoutes);

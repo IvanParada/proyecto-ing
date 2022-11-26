@@ -64,7 +64,6 @@ const deleteUser = (req, res) => {
         }
         return res.status(200).send(userModels)
     })
-    
 }
 
 module.exports = {

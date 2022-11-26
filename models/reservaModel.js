@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ReservaSchema =  new Schema({
     fecha:{
-        type: Date,
+        type: Number,
         required: true,
     },
     hora_inicio:{
-        type: Date,
+        type: Number,
         required: true
     },
     cant_horas:{
@@ -18,11 +18,11 @@ const ReservaSchema =  new Schema({
         type: Number,
         required: true
     },
-    tipoID:{
+    espacioId:{
         type: Schema.ObjectId,
-        ref: 'categoriaModel'
+        ref: 'espacioComunModel'
     },
-    userID:{
+    userId:{
         type: Schema.ObjectId,
         ref: 'userModel'
     }
