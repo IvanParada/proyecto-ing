@@ -1,3 +1,4 @@
+const espacioComunModel = require('../models/espacioComunModel');
 const reservaModel = require('../models/reservaModel');
 
 const createReserva = (req, res) => {
@@ -13,7 +14,7 @@ const createReserva = (req, res) => {
 
 reservaModel.exists({fecha_reserva, hora_inicio, espacioId }, (err, existe) => { 
     if(existe){
-        return res.status(400).send({message: "Cueck.."})
+        return res.status(400).send({message: "El espacio que ha elegido se encuentra reservado"})
         }else{
     newReserva.save((err, reservaModel)=>{
         console.log(err)
