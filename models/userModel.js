@@ -12,6 +12,7 @@ const UserSchema = new Schema({
     rut:{
         type: String,
         minLenght: [8, 'Porfavor ingrese un RUT válido'],
+        maxLenght: [9, 'Porfavor ingrese un RUT válido'],
         required: true
     },
     estado:{

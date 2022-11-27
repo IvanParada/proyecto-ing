@@ -9,12 +9,19 @@ const createUser  = (req, res) => {
         estado,
         tipoUsuario
     });
+
+userModel.exists({"rut": rut}, (err, existe) => {
+    if(existe){
+        return res.status(400).send({message: "Ya existe un usuario con este RUT"})
+    }else {
     newUser.save((err, userModel) => {
         if (err) {
             return res.status(400).send({message:"Error al crear el usuario"})
         }
         return res.status(201).send(userModel)
-    });
+          });
+        }
+    })
 }
 
 const getUsers = (req, res) => {

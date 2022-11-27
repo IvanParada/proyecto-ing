@@ -1,6 +1,5 @@
 const reservaModel = require('../models/reservaModel');
 
-
 const createReserva = (req, res) => {
     const {fecha_reserva, hora_inicio, cant_horas,cant_personas, espacioId, userId } = req.body
     const newReserva = new reservaModel({
@@ -11,12 +10,20 @@ const createReserva = (req, res) => {
         espacioId,
         userId
     });
+
+reservaModel.exists({fecha_reserva, hora_inicio, espacioId }, (err, existe) => { 
+    if(existe){
+        return res.status(400).send({message: "Cueck.."})
+        }else{
     newReserva.save((err, reservaModel)=>{
+        console.log(err)
         if(err){
             return res.status(400).send({message: "No se ha podido crear la solicitud de reserva"})
         }
         return res.status(201).send(reservaModel)
-    });
+            });
+        }
+    })
 }
 
 const getReservas = (req , res) => {
@@ -73,5 +80,4 @@ module.exports = {
     getSpecificReserva,
     updateReserva,
     deleteReserva
-
 }
