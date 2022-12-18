@@ -1,6 +1,9 @@
 import {useState} from 'react'
 import {Select, Button, Container, Input, Stack, Heading, FormControl, FormLabel, option } from '@chakra-ui/react'
 import axios from 'axios'
+import Swal from 'sweetalert2'
+import {useRouter} from 'next/router'
+
 
 const CrearUsuarios = () => {
 
@@ -12,12 +15,41 @@ const CrearUsuarios = () => {
         estado:'',
         tipoUsuario:''
     })
+    const router = useRouter()
 
     const onSubmit = async (e) => {
         e.preventDefault()
         console.log(values)
-        const response = await axios.post(`${process.env.API_URL}/userModel`, values)
-        console.log(response)
+        try{
+            const response = await axios.post(`${process.env.API_URL}/userModel`, values)
+            console.log(response)
+            if(response.status == 201) {
+                Swal.fire({
+                    title: 'Usuario creado',
+                    text: 'El usuario se ha creado exitosamente',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                router.push('/verUsuarios')
+                    }
+                })
+            }else{
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Ha ocurrido un error',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            }
+        } catch (err) {
+        Swal.fire({
+            title: 'Error',
+            text: 'Ha ocurrido un error',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        })
+        }
     }
 
     const onChange = (e) => {
