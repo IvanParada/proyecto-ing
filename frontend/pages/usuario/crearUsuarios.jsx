@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {Select, Button, Container, Input, Stack, Heading, FormControl, FormLabel, option } from '@chakra-ui/react'
+import {Select, Button, Container, Input, Stack, Heading, FormControl, FormLabel, option, HStack } from '@chakra-ui/react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import {useRouter} from 'next/router'
@@ -90,7 +90,10 @@ const CrearUsuarios = () => {
             </Select>
             </FormControl>
         </Stack>
+        <HStack>
         <Button colorScheme="purple" size="md" type="submit" my={6} onClick={onSubmit}> Guardar </Button>
+        <Button colorScheme="purple" onClick={() => router.push(`/usuarios`)}>Volver</Button>
+        </HStack>
         </Container>
     )
 }

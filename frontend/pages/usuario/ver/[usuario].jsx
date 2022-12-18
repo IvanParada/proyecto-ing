@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import axios from 'axios'
 import {getUsers} from '../../../data/user'
-import { Container,Heading,Table,Tr,Td,Tbody } from "@chakra-ui/react"
+import { Container,Heading,Table,Tr,Td,Tbody, HStack, Button } from "@chakra-ui/react"
 
 export async function getServerSideProps(context) {
     try {
@@ -20,8 +20,6 @@ export async function getServerSideProps(context) {
         }
     }
 }
-
-
 
 const Usuario = ({data}) => {
     const router = useRouter()
@@ -64,6 +62,12 @@ const Usuario = ({data}) => {
                 </Tbody>
             </Table>
             
+      <HStack>
+        <Button colorScheme={"purple"} onClick={() => router.push(`/usuario/editar/${user._id}`)}>Editar</Button>
+        <Button colorScheme={"purple"} onClick={() => router.push(`/usuario/eliminar/${user._id}`)}>Eliminar</Button>
+        <Button colorScheme={"purple"} onClick={() => router.push(`/usuarios`)}>Volver</Button>
+      </HStack>
+
         </Container>
 )
 

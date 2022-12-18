@@ -2,8 +2,6 @@ import { useState } from "react"
 import { Container, Heading, Input, Button, Stack } from '@chakra-ui/react'
 import InputTest from "../components/InputTest"
 import { useRouter } from "next/router"
-import {login} from '../data/user'
-
 
 export default function Home() {
 
@@ -19,10 +17,9 @@ export default function Home() {
     try{
       router.push('/usuarios')
     }catch (err) {
-
+      console.log(err)
     }
   }
-
 
   return (
     <Container maxW="container.xl" centerContent>
