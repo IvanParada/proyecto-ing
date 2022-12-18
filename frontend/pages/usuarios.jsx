@@ -3,7 +3,8 @@ import {Button, Container, Input, Stack, Text, HStack, Heading, Table, Thead, Tb
 import axios from 'axios'
 import { useRouter } from "next/router"
 
-export default function Home() {
+
+const Usuarios = () => {
 
     const [userModels, setUser] = useState([])
     const router = useRouter()
@@ -25,7 +26,7 @@ export default function Home() {
                     <Td>{user.rut}</Td>
                     <Td>{user.estado}</Td>
                     <Td>{user.tipoUsuario}</Td>
-                    <Td><Button onClick={() => router.push(`/usuario/${user._id}`)}> Ver</Button></Td>
+                    <Td><Button colorScheme="purple" onClick={() => router.push(`/usuario/ver/${user._id}`)}> Ver más</Button></Td>
                 </Tr>
             )
         })
@@ -35,7 +36,7 @@ export default function Home() {
     return(
     <Container maxW="container.xl" centerContent>
         <Heading textAlign={"center"} my={10}> Visualizar Usuarios </Heading>
-        <Button colorScheme="purple" onClick={() => router.push('/crearUsuarios')}>Crear Usuario</Button>
+        <Button colorScheme="purple" onClick={() => router.push('/usuario/crearUsuarios')}>Crear Usuario</Button>
         <Table variant="simple">
             <Thead>
                 <Tr>
@@ -51,3 +52,5 @@ export default function Home() {
     </Container>
     )
 }
+
+export default Usuarios
