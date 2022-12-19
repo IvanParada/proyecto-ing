@@ -31,7 +31,7 @@ const CrearUsuarios = () => {
                     confirmButtonText: 'Ok'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                router.push('/verUsuarios')
+                router.push('/usuarios')
                     }
                 })
             }else{
@@ -91,8 +91,8 @@ const CrearUsuarios = () => {
             </FormControl>
         </Stack>
         <HStack>
-        <Button colorScheme="purple" size="md" type="submit" my={6} onClick={onSubmit}> Guardar </Button>
-        <Button colorScheme="purple" onClick={() => router.push(`/usuarios`)}>Volver</Button>
+        <Button colorScheme="blue"  type="submit" my={6} onClick={onSubmit}> Guardar </Button>
+        <Button colorScheme="red" onClick={() => router.push(`/usuarios`)}>Cancelar</Button>
         </HStack>
         </Container>
     )

@@ -26,7 +26,7 @@ const Usuarios = () => {
                     <Td>{user.rut}</Td>
                     <Td>{user.estado}</Td>
                     <Td>{user.tipoUsuario}</Td>
-                    <Td><Button colorScheme="purple" onClick={() => router.push(`/usuario/ver/${user._id}`)}> Ver más</Button></Td>
+                    <Td><Button colorScheme="purple" onClick={() => router.push(`/usuario/ver/${user._id}`)}> Ver más ...</Button></Td>
                 </Tr>
             )
         })

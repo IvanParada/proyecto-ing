@@ -73,10 +73,24 @@ const deleteUser = (req, res) => {
     })
 }
 
+// const login = (req, res) => {
+//     const {rut} = req.body;
+//     User.findOne({userModel}), (err, user) => {
+//         if (err) {
+//             return res.status(400).send({message: 'Error al obtener el usuario'});
+//         }
+//         if(!user){
+//             return res.status(404).send({message: 'El usuario no existe'});
+//         }
+//         return res.status(200).send({message: 'Se ha logeado correctamente', userModel: rut , tipoUsuario:"Administrador"});
+//     }
+// }
+
 module.exports = {
     createUser,
     getUsers,
     getSpecificUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    // login
 }

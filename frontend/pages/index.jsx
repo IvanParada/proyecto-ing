@@ -26,7 +26,7 @@ export default function Home() {
       <Heading textAlign={"center"} my={10}>Ingrese el usuario</Heading>
       <Stack>
       <Input onChange={handleChange} name={"rut"}/>
-      <Button colorScheme="purple" onClick={onSubmit}>Ingresar</Button>
+      <Button colorScheme="green" onClick={onSubmit}>Ingresar</Button>
       </Stack>
     </Container>
   )

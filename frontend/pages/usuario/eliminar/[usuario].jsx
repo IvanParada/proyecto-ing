@@ -28,7 +28,7 @@ const Usuario = ({data}) => {
 
     return (
         <Container maxW="container.md">
-            <Heading textAlign={"center"} my={10}>Detalles Usuario</Heading>
+            <Heading textAlign={"center"} my={10}>Eliminar Usuario</Heading>
             <Table variant="striped" colorScheme='purple'>
                 <Tbody>
                 <Tr>
@@ -63,9 +63,8 @@ const Usuario = ({data}) => {
             </Table>
             
       <HStack  py={10}>
-        <Button w={"full"} colorScheme={"green"} onClick={() => router.push(`/usuario/editar/${user._id}`)}>Editar</Button>
         <Button w={"full"} colorScheme={"red"} onClick={() => router.push(`/usuario/eliminar/${user._id}`)}>Eliminar</Button>
-        <Button w={"full"} colorScheme={"purple"} onClick={() => router.push(`/usuarios`)}>Volver</Button>
+        <Button w={"full"} colorScheme={"purple"} onClick={() => router.push(`/usuario/ver/${user._id}`)}>Volver</Button>
       </HStack>
 
         </Container>
