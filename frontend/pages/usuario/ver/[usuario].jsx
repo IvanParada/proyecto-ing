@@ -33,31 +33,31 @@ const Usuario = ({data}) => {
             <Table variant="striped" colorScheme='purple'>
                 <Tbody>
                 <Tr>
-                    <Td>ID</Td>
+                    <Td><b>ID</b></Td>
                     <Td>{user._id}</Td>
                 </Tr>
                 <Tr>
-                    <Td>Nombres</Td>
+                    <Td><b>Nombres</b></Td>
                     <Td>{user.nombres}</Td>
                 </Tr>
                 <Tr>
-                    <Td>Apellidos</Td>
+                    <Td><b>Apellidos</b></Td>
                     <Td>{user.apellidos}</Td>
                 </Tr>
                 <Tr>
-                    <Td>RUT</Td>
+                    <Td><b>RUT</b></Td>
                     <Td> {user.rut}</Td>
                 </Tr>
                 <Tr>
-                    <Td>Estado</Td>
+                    <Td><b>Estado</b></Td>
                     <Td>{user.estado}</Td>
                 </Tr>
                 <Tr>
-                    <Td>Rol</Td>
+                    <Td><b>Rol</b></Td>
                     <Td>{user.tipoUsuario}</Td>
                 </Tr>
                 <Tr>
-                    <Td>versionKey</Td>
+                    <Td><b>versionKey</b></Td>
                     <Td>{user.__v}</Td>
                 </Tr>
                 </Tbody>

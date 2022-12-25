@@ -14,12 +14,25 @@ userModel.exists({"rut": rut}, (err, existe) => {
     if(existe){
         return res.status(400).send({message: "Ya existe un usuario con este RUT"})
     }else {
+        if(!nombres){
+            res.status(403)
+            res.send({error: 'Nombre vacio'})
+        }
+        if(!apellidos){
+            res.status(403)
+            res.send({error: 'Apellido vacio'})
+        }
+        if(!rut || req.body.rut < 10000000 || req.body.rut > 609999999){
+            res.status(403)
+            res.send({error: 'RUT invalido'})
+        }else  {
     newUser.save((err, userModel) => {
         if (err) {
             return res.status(400).send({message:"Error al crear el usuario"})
         }
         return res.status(201).send(userModel)
-          });
+                });
+            }
         }
     })
 }
@@ -37,7 +50,7 @@ const getSpecificUser = (req, res) => {
     const {id} = req.params;
     userModel.findById(id ,(err, userModels) => {
         if(err){
-            return res.status(400).send({ message: "Error al oobtener el usuario"})
+            return res.status(400).send({ message: "Error al obtener el usuario"})
         }
         if(!userModels){
             return res.status(404).send({ message:  "Usuario no encontrado"})
@@ -50,7 +63,7 @@ const updateUser = (req, res) => {
     const {id} = req.params;
     userModel.findByIdAndUpdate(id, req.body, (err, userModels) => {
         if(err){
-            return res.status(400).send({ message: "Error al oobtener el usuario"})
+            return res.status(400).send({ message: "Error al obtener el usuario"})
         }
         if(!userModels){
             return res.status(404).send({ message:  "Usuario no encontrado"})
@@ -64,7 +77,7 @@ const deleteUser = (req, res) => {
     const {id} = req.params;
     userModel.findByIdAndDelete(id ,(err, userModels) => {
         if(err){
-            return res.status(400).send({ message: "Error al oobtener el usuario"})
+            return res.status(400).send({ message: "Error al obtener el usuario"})
         }
         if(!userModels){
             return res.status(404).send({ message:  "Usuario no encontrado"})

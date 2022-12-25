@@ -45,12 +45,12 @@ const Usuarios = () => {
         <Table variant="simple">
             <Thead>
                 <Tr>
-                    <Td>Nombres</Td>
-                    <Td>Apellidos</Td>
-                    <Td>RUT</Td>
-                    <Td>Estado</Td>
-                    <Td>tipoUsuario</Td>
-                    <Td>Acciones</Td>
+                    <Td><b>Nombres</b></Td>
+                    <Td><b>Apellidos</b></Td>
+                    <Td><b>RUT</b></Td>
+                    <Td><b>Estado</b></Td>
+                    <Td><b>Rol de Usuario</b></Td>
+                    <Td><b>Acciones</b></Td>
                 </Tr>
                 {showUsers()}
             </Thead>
