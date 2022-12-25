@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import {Button, Container, Input, Stack, Text, HStack, Heading, Table, Thead, Tbody, Tfoot,Tr, Th, Td, } from '@chakra-ui/react'
+import {Button, Box,Container, Input, Stack, Text, HStack, Heading, Table, Thead, Tbody, Tfoot,Tr, Th, Td, } from '@chakra-ui/react'
 import axios from 'axios'
 import { useRouter } from "next/router"
 
@@ -26,7 +26,9 @@ const Usuarios = () => {
                     <Td>{user.rut}</Td>
                     <Td>{user.estado}</Td>
                     <Td>{user.tipoUsuario}</Td>
-                    <Td><Button colorScheme="purple" onClick={() => router.push(`/usuario/ver/${user._id}`)}> Ver más ...</Button></Td>
+                    <Td><Button bgGradient='linear(to-l, #7928CA, #FF0080)' _hover={{
+    bgGradient: 'linear(to-r, pink.100, purple.100)',
+  }} color='white' onClick={() => router.push(`/usuario/ver/${user._id}`)}> Ver más ...</Button></Td>
                 </Tr>
             )
         })
@@ -34,9 +36,12 @@ const Usuarios = () => {
 
 
     return(
-    <Container maxW="container.xl" centerContent>
+    <Container bg='#3C908B' maxW="container.xxl" centerContent>
+         <Box bg='#DAEDEC' boxShadow='dark-lg' padding='20' margin='5'  rounded='lg' color='black' >
         <Heading textAlign={"center"} my={10}> Visualizar Usuarios </Heading>
-        <Button colorScheme="purple" onClick={() => router.push('/usuario/crearUsuarios')}>Crear Usuario</Button>
+        <Button bgGradient='linear(to-l, #7928CA, #FF0080)' _hover={{
+    bgGradient: 'linear(to-r, pink.500, purple.500)',
+  }} color='white' onClick={() => router.push('/usuario/crearUsuarios')}>Crear Usuario</Button>
         <Table variant="simple">
             <Thead>
                 <Tr>
@@ -45,10 +50,12 @@ const Usuarios = () => {
                     <Td>RUT</Td>
                     <Td>Estado</Td>
                     <Td>tipoUsuario</Td>
+                    <Td>Acciones</Td>
                 </Tr>
                 {showUsers()}
             </Thead>
         </Table>
+        </Box>
     </Container>
     )
 }

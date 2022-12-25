@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import axios from 'axios'
 import {getUsers} from '../../../data/user'
-import { Container,Heading,Table,Tr,Td,Tbody, HStack, Button } from "@chakra-ui/react"
+import { Box,Container,Heading,Table,Tr,Td,Tbody, HStack, Button } from "@chakra-ui/react"
 
 export async function getServerSideProps(context) {
     try {
@@ -27,8 +27,9 @@ const Usuario = ({data}) => {
     const [user] = useState(data)
 
     return (
-        <Container maxW="container.md">
-            <Heading textAlign={"center"} my={10}>Eliminar Usuario</Heading>
+        <Container  bg='#3C908B'  maxW="10xl" centerContent>
+             <Box  bg='#DAEDEC' boxShadow='dark-lg' padding='10' margin='40' rounded='lg' color='black' >
+            <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}>Eliminar Usuario</Heading>
             <Table variant="striped" colorScheme='purple'>
                 <Tbody>
                 <Tr>
@@ -61,12 +62,16 @@ const Usuario = ({data}) => {
                 </Tr>
                 </Tbody>
             </Table>
-            
-      <HStack  py={10}>
-        <Button w={"full"} colorScheme={"red"} onClick={() => router.push(`/usuario/eliminar/${user._id}`)}>Eliminar</Button>
-        <Button w={"full"} colorScheme={"purple"} onClick={() => router.push(`/usuario/ver/${user._id}`)}>Volver</Button>
-      </HStack>
 
+      <HStack  py={10}>
+        <Button w={"full"}  bgGradient='linear(to-l, #A00909, #FF0404)' _hover={{
+    bgGradient: 'linear(to-r, red.500, red.300)',
+  }} color='white' onClick={() => router.push(`/usuario/eliminar/${user._id}`)}>Eliminar</Button>
+        <Button w={"full"}  bgGradient='linear(to-l, #7928CA, #FF0080)' _hover={{
+    bgGradient: 'linear(to-r, pink.500, purple.300)',
+  }} color='white' onClick={() => router.push(`/usuario/ver/${user._id}`)}>Volver</Button>
+      </HStack>
+        </Box>
         </Container>
 )
 

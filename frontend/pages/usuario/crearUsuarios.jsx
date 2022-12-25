@@ -1,8 +1,9 @@
 import {useState} from 'react'
-import {Select, Button, Container, Input, Stack, Heading, FormControl, FormLabel, option, HStack } from '@chakra-ui/react'
+import {Select, Box, Button, Container, Input, Stack, Heading, FormControl, FormLabel, option, HStack } from '@chakra-ui/react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import {useRouter} from 'next/router'
+import { IconButton } from '@chakra-ui/react'
 
 
 const CrearUsuarios = () => {
@@ -60,12 +61,13 @@ const CrearUsuarios = () => {
         console.log(e.target.name, e.target.value)
     }
     return(
-        <Container maxW="container.md" centerContent>
-            <Heading textAlign={"center"} my={10}> Crear Usuarios</Heading>
+        <Container bg='#3C908B' maxW="xxl" centerContent>
+        <Box bg='#DAEDEC' padding='100' margin='20' boxShadow='dark-lg'   rounded='lg' color='black' maxW='md'>
+            <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Crear Usuarios</Heading>
         <Stack>
             <FormControl isRequired>
                 <FormLabel>Nombres</FormLabel>
-                <Input variant='flushed' placeholder='p. ej.: Ignacio Ignacio' type={"text"} onChange={onChange} name={"nombres"}/>
+                <Input variant='flushed'  placeholder='p. ej.: Ignacio Ignacio' type={"text"} onChange={onChange} name={"nombres"}/>
             </FormControl>
             <FormControl isRequired>
                 <FormLabel>Apellidos</FormLabel>
@@ -91,9 +93,14 @@ const CrearUsuarios = () => {
             </FormControl>
         </Stack>
         <HStack>
-        <Button colorScheme="blue"  type="submit" my={6} onClick={onSubmit}> Guardar </Button>
-        <Button colorScheme="red" onClick={() => router.push(`/usuarios`)}>Cancelar</Button>
+        <Button  bgGradient='linear(to-l, #1A1A8F, #0000FF)' _hover={{
+    bgGradient: 'linear(to-r, blue.500, blue.300)',
+  }} color='white'   type="submit" my={6} onClick={onSubmit}> Guardar </Button>
+        <Button bgGradient='linear(to-l, #A00909, #FF0404)' _hover={{
+    bgGradient: 'linear(to-r, red.500, red.300)',
+  }} color='white' onClick={() => router.push(`/usuarios`)}>Cancelar</Button>
         </HStack>
+        </Box>
         </Container>
     )
 }
