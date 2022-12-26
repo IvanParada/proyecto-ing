@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {Select, Box, Button, Container, Input, Stack, Heading, FormControl, FormLabel, HStack } from '@chakra-ui/react'
+import {Box, Button, Container, Stack, Heading,HStack } from '@chakra-ui/react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import {useRouter} from 'next/router'
@@ -65,18 +65,18 @@ const CrearUsuarios = () => {
     return(
         <Container bg='#3C908B' maxW="xxl" centerContent>
         <Box bg='#DAEDEC' padding='100' margin='20' boxShadow='dark-lg'   rounded='lg' color='black' maxW='md'>
-            <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Crear Usuarios</Heading>
+            <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Registrar Usuarios</Heading>
         <Stack>
-            <InputForm label="Nombres" handleChange={handleChange} variant="flushed" name="nombres" placeholder="p. ej.: Ignacio Ignacio" type="text"/>
-            <InputForm label="Apellidos" handleChange={handleChange} variant="flushed" name="apellidos" placeholder="p. ej.: Perez Perez" type="text"/>
-            <InputForm label="RUT" handleChange={handleChange} variant="flushed" name="rut" placeholder="Ingrese RUT, sin puntos ni guión" type="text"/>
-        <SelectFormEstado label="Estado" handleChange={handleChange} variant="flushed" name="estado" placeholder="Seleccione..."/>
-            <SelectFormTipoUsuario label="Rol Usuario" handleChange={handleChange} variant="flushed" name="tipoUsuario" placeholder="Seleccione..."/>
+            <InputForm label="Nombres" handleChange={handleChange} variant="flushed" name="nombres" placeholder="p. ej.: Ignacio Ignacio" type="text" value={user.nombres}/>
+            <InputForm label="Apellidos" handleChange={handleChange} variant="flushed" name="apellidos" placeholder="p. ej.: Perez Perez" type="text" value={user.apellidos}/>
+            <InputForm label="RUT" handleChange={handleChange} variant="flushed" name="rut" placeholder="Ingrese RUT, sin puntos ni guión" type="text" value={user.rut}/>
+        <SelectFormEstado label="Estado" handleChange={handleChange} variant="flushed" name="estado" placeholder="Seleccione..." value={user.estado}/>
+            <SelectFormTipoUsuario label="Rol Usuario" handleChange={handleChange} variant="flushed" name="tipoUsuario" placeholder="Seleccione..." value={user.tipoUsuario}/>
         </Stack>
         <HStack>
         <Button  bgGradient='linear(to-l, #1A1A8F, #0000FF)' _hover={{
     bgGradient: 'linear(to-r, blue.500, blue.300)',
-  }} color='white'   type="submit" my={6} onClick={onSubmit}> Guardar </Button>
+  }} color='white'   type="submit" my={6} onClick={onSubmit}> Registrar </Button>
         <Button bgGradient='linear(to-l, #A00909, #FF0404)' _hover={{
     bgGradient: 'linear(to-r, red.500, red.300)',
   }} color='white' onClick={() => router.push(`/usuarios`)}>Cancelar</Button>

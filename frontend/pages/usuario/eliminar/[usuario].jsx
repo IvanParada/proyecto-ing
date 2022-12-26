@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import axios from 'axios'
-import {getUsers} from '../../../data/user'
+import {getUsers,deleteUser} from '../../../data/user'
 import { Box,Container,Heading,Table,Tr,Td,Tbody, HStack, Button } from "@chakra-ui/react"
 
 export async function getServerSideProps(context) {
@@ -23,8 +23,32 @@ export async function getServerSideProps(context) {
 
 const Usuario = ({data}) => {
     const router = useRouter()
-    const {usuario} = router.query
     const [user] = useState(data)
+
+
+    const onSubmit = async (e) => {
+        e.preventDefault()
+        const response = await deleteUser(user)
+        if(response.status === 200) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Usuario eliminado',
+            showConfirmButton: true,
+            text: 'El usuario se eliminó correctamente'
+          }).then(() => {
+            router.push('/usuarios')
+          })
+        }else{
+          Swal.fire({
+            icon:'error',
+            title: 'Error',
+            showConfirmButton: true,
+            text:'Ocurrió un error al eliminar el usuario'
+          })
+        }
+    
+      }
+
 
     return (
         <Container  bg='#3C908B'  maxW="10xl" centerContent>
@@ -66,7 +90,7 @@ const Usuario = ({data}) => {
       <HStack  py={10}>
         <Button w={"full"}  bgGradient='linear(to-l, #A00909, #FF0404)' _hover={{
     bgGradient: 'linear(to-r, red.500, red.300)',
-  }} color='white' onClick={() => router.push(`/usuario/eliminar/${user._id}`)}>Eliminar</Button>
+  }} color='white' onClick={onSubmit}>Eliminar</Button>
         <Button w={"full"}  bgGradient='linear(to-l, #7928CA, #FF0080)' _hover={{
     bgGradient: 'linear(to-r, pink.500, purple.300)',
   }} color='white' onClick={() => router.push(`/usuario/ver/${user._id}`)}>Volver</Button>
