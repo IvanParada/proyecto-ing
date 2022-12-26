@@ -61,8 +61,8 @@ const editar = ({data}) => {
   }
 
     return(
-        <Container bg='#3C908B' maxW="xxl" centerContent>
-        <Box bg='#DAEDEC' padding='100' margin='20' boxShadow='dark-lg'   rounded='lg' color='black' maxW='md'>
+        <Container maxW="xxl" centerContent>
+        <Box bg='#DAEDEC' padding='100' margin='10' boxShadow='dark-lg'   rounded='lg' color='black' maxW='md'>
             <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Editar Usuario</Heading>
         <Stack>
             <FormControl isRequired>
@@ -98,7 +98,7 @@ const editar = ({data}) => {
   }} color='white'   type="submit" my={6} onClick={onSubmit}> Guardar </Button>
         <Button bgGradient='linear(to-l, #A00909, #FF0404)' _hover={{
     bgGradient: 'linear(to-r, red.500, red.300)',
-  }} color='white' onClick={() => router.push(`/usuarios`)}>Cancelar</Button>
+  }} color='white' onClick={() => router.push(`/usuario/ver/${user._id}`)}>Cancelar</Button>
         </HStack>
         </Box>
         </Container>

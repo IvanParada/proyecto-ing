@@ -27,8 +27,8 @@ const Usuario = ({data}) => {
     const [user] = useState(data)
 
     return (
-        <Container  bg='#3C908B' maxW="xxl" centerContent>
-        <Box  bg='#DAEDEC' boxShadow='dark-lg' padding='10' margin='40' rounded='lg' color='black' >
+        <Container  maxW="xxl" centerContent>
+        <Box  bg='#DAEDEC' boxShadow='dark-lg' padding='10' margin='10' rounded='lg' color='black' >
             <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}>Detalles Usuario</Heading>
             <Table variant="striped" colorScheme='purple'>
                 <Tbody>

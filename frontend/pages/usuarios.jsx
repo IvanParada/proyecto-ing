@@ -36,7 +36,7 @@ const Usuarios = () => {
 
 
     return(
-    <Container bg='#3C908B' maxW="container.xxl" centerContent>
+    <Container  maxW="container.xxl" centerContent>
          <Box bg='#DAEDEC' boxShadow='dark-lg' padding='20' margin='5'  rounded='lg' color='black' >
         <Heading textAlign={"center"} my={10}> Visualizar Usuarios </Heading>
         <Button bgGradient='linear(to-l, #7928CA, #FF0080)' _hover={{

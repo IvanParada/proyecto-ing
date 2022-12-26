@@ -63,8 +63,8 @@ const CrearUsuarios = () => {
         console.log(e.target.name, e.target.value)
     }
     return(
-        <Container bg='#3C908B' maxW="xxl" centerContent>
-        <Box bg='#DAEDEC' padding='100' margin='20' boxShadow='dark-lg'   rounded='lg' color='black' maxW='md'>
+        <Container  maxW="xxl" centerContent>
+        <Box bg='#DAEDEC' padding='100' margin='10' boxShadow='dark-lg'   rounded='lg' color='black' maxW='md'>
             <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Registrar Usuarios</Heading>
         <Stack>
             <InputForm label="Nombres" handleChange={handleChange} variant="flushed" name="nombres" placeholder="p. ej.: Ignacio Ignacio" type="text" value={user.nombres}/>

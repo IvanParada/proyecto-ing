@@ -23,7 +23,7 @@ export default function Home() {
   }
 
   return (
-    <Container  bg='#3C908B' maxW="200xl" centerContent>
+    <Container   maxW="200xl" centerContent>
       <Box  bg='#DAEDEC' boxShadow='dark-lg' padding='100' margin='253.5'  rounded='lg' color='black' maxW='md'>
       <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10} >Ingrese el usuario</Heading>
       <Stack>
