@@ -1,5 +1,9 @@
 import axios from "axios";
 
+const createUser = async () => {
+    const response = await axios.post(`${process.env.API_URL}/userModel`);
+    return response
+}
 const getUser = async() => {
     const response = await axios.get(`${process.env.API_URL}/userModels`);
     return response
@@ -26,6 +30,7 @@ const login = async(rut) => {
     return response
 }
 module.exports = {
+    createUser,
     getUsers,
     getUser,
     deleteUsers,

@@ -1,14 +1,16 @@
 import {useState} from 'react'
-import {Select, Box, Button, Container, Input, Stack, Heading, FormControl, FormLabel, option, HStack } from '@chakra-ui/react'
+import {Select, Box, Button, Container, Input, Stack, Heading, FormControl, FormLabel, HStack } from '@chakra-ui/react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import {useRouter} from 'next/router'
-import { IconButton } from '@chakra-ui/react'
+import InputForm from '../../components/InputForm'
+import SelectFormEstado from '../../components/SelectFormEstado'
+import SelectFormTipoUsuario from '../../components/SelectFormTipoUsuario'
 
 
 const CrearUsuarios = () => {
 
-    const [values, setValues] = useState({
+    const [user, createUser] = useState({
 
         nombres: '',
         apellidos: '',
@@ -20,9 +22,9 @@ const CrearUsuarios = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        console.log(values)
+        console.log(user)
         try{
-            const response = await axios.post(`${process.env.API_URL}/userModel`, values)
+            const response = await axios.post(`${process.env.API_URL}/userModel`, user)
             console.log(response)
             if(response.status == 201) {
                 Swal.fire({
@@ -53,9 +55,9 @@ const CrearUsuarios = () => {
         }
     }
 
-    const onChange = (e) => {
-        setValues({
-            ...values,
+    const handleChange = (e) => {
+        createUser({
+            ...user,
             [e.target.name]: e.target.value
         })
         console.log(e.target.name, e.target.value)
@@ -65,32 +67,11 @@ const CrearUsuarios = () => {
         <Box bg='#DAEDEC' padding='100' margin='20' boxShadow='dark-lg'   rounded='lg' color='black' maxW='md'>
             <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Crear Usuarios</Heading>
         <Stack>
-            <FormControl isRequired>
-                <FormLabel>Nombres</FormLabel>
-                <Input variant='flushed'  placeholder='p. ej.: Ignacio Ignacio' type={"text"} onChange={onChange} name={"nombres"}/>
-            </FormControl>
-            <FormControl isRequired>
-                <FormLabel>Apellidos</FormLabel>
-                <Input variant='flushed' placeholder='p. ej.: Perez Perez' type={"text"} onChange={onChange} name={"apellidos"}/>
-            </FormControl >
-            <FormControl isRequired>
-                <FormLabel>RUT</FormLabel>
-                <Input variant='flushed' placeholder='sin guión, ni puntos' type={"text"} onChange={onChange} name={"rut"}/>
-            </FormControl>
-            <FormControl isRequired>
-            <FormLabel>Estado</FormLabel>
-            <Select variant='flushed' placeholder='Seleccione el estado del usuario' onChange={onChange} name={"estado"}>
-                <option>Autorizado</option>
-                <option>Restringido</option>
-            </Select>
-            </FormControl>
-            <FormControl isRequired>
-            <FormLabel>Tipo de Usuario</FormLabel>
-            <Select variant='flushed' placeholder='Seleccione el tipo de usuario' onChange={onChange} name={"tipoUsuario"}>
-                <option>Usuario</option>
-                <option>Administrador</option>
-            </Select>
-            </FormControl>
+            <InputForm label="Nombres" handleChange={handleChange} variant="flushed" name="nombres" placeholder="p. ej.: Ignacio Ignacio" type="text"/>
+            <InputForm label="Apellidos" handleChange={handleChange} variant="flushed" name="apellidos" placeholder="p. ej.: Perez Perez" type="text"/>
+            <InputForm label="RUT" handleChange={handleChange} variant="flushed" name="rut" placeholder="Ingrese RUT, sin puntos ni guión" type="text"/>
+        <SelectFormEstado label="Estado" handleChange={handleChange} variant="flushed" name="estado" placeholder="Seleccione..."/>
+            <SelectFormTipoUsuario label="Rol Usuario" handleChange={handleChange} variant="flushed" name="tipoUsuario" placeholder="Seleccione..."/>
         </Stack>
         <HStack>
         <Button  bgGradient='linear(to-l, #1A1A8F, #0000FF)' _hover={{
@@ -106,5 +87,3 @@ const CrearUsuarios = () => {
 }
 
 export default CrearUsuarios
-
-
