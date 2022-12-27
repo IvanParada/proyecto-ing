@@ -61,7 +61,7 @@ const editar = ({data}) => {
   }
 
     return(
-        <Container maxW="xxl" centerContent>
+        <Container  w='100%' h='100%' bgGradient='linear(#0A4C48 0%, #0B403D 25%, #09736C 50%)' maxW="100%" centerContent>
         <Box bg='#DAEDEC' padding='100' margin='10' boxShadow='dark-lg'   rounded='lg' color='black' maxW='md'>
             <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Editar Usuario</Heading>
         <Stack>

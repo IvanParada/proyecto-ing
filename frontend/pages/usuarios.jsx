@@ -36,13 +36,13 @@ const Usuarios = () => {
 
 
     return(
-    <Container  maxW="container.xxl" centerContent>
+    <Container w='100%' h='100%' bgGradient='linear(#0A4C48 0%, #0B403D 25%, #09736C 50%)' maxW="100%" centerContent>
          <Box bg='#DAEDEC' boxShadow='dark-lg' padding='20' margin='5'  rounded='lg' color='black' >
-        <Heading textAlign={"center"} my={10}> Visualizar Usuarios </Heading>
-        <Button bgGradient='linear(to-l, #7928CA, #FF0080)' _hover={{
+        <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Visualizar Usuarios </Heading>
+        <Button margin='5' bgGradient='linear(to-l, #7928CA, #FF0080)' _hover={{
     bgGradient: 'linear(to-r, pink.500, purple.500)',
-  }} color='white' onClick={() => router.push('/usuario/crearUsuarios')}>Crear Usuario</Button>
-        <Table variant="simple">
+  }} color='white' onClick={() => router.push('/usuario/crearUsuarios') }>Crear Usuario</Button>
+        <Table variant='simple' colorScheme="black"  rounded='lg' >
             <Thead>
                 <Tr>
                     <Td><b>Nombres</b></Td>

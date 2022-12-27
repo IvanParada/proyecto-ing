@@ -1,11 +1,11 @@
 import { FormControl, FormLabel, Select } from '@chakra-ui/react'
 import React from 'react'
 
-const SelectFormTipoUsuario = ({label, handleChange, variant, name, placeholder,option}) => {
+const SelectFormTipoUsuario = ({label, handleChange, variant, name, placeholder,option, handleBlur}) => {
   return (
     <FormControl id={name} isRequired>
         <FormLabel>{label}</FormLabel>
-        <Select variant={variant}  placeholder={placeholder} onChange={handleChange} name={name} >
+        <Select variant={variant}  placeholder={placeholder} onChange={handleChange} name={name}  handleBlur={handleBlur}>
             <option>Usuario</option>
             <option>Administrador</option>
         </Select>
