@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import axios from 'axios'
 import {getUsers} from '../../../data/user'
 import { Container,Heading,Table,Tr,Td,Tbody, HStack, Button,Box } from "@chakra-ui/react"
 

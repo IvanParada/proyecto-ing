@@ -1,8 +1,7 @@
 import { FormControl, FormLabel, Input } from '@chakra-ui/react'
 import React from 'react'
 
-const InputForm = ({label, handleChange, variant, name, placeholder, type, handleBlur}) => {
-  console.log("name: ", name)
+const InputForm = ({label, handleChange, variant, name, placeholder, type, handleBlur,value}) => {
   return (
     <FormControl id={name} isRequired>
       <FormLabel>{label}</FormLabel>
@@ -11,7 +10,8 @@ const InputForm = ({label, handleChange, variant, name, placeholder, type, handl
               type={type}
               onChange={handleChange}
               name={name}
-              handleBlur={handleBlur} />
+              handleBlur={handleBlur}
+              value={value} />
     </FormControl>
   )
 }
