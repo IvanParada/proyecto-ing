@@ -41,7 +41,7 @@ export const espacios = () => {
     }
 
     return (
-        <Container w='100%' h='100%' bgGradient='linear(#0A4C48 0%, #0B403D 25%, #09736C 50%)' maxW="100%" centerContent>
+        <Container w='100%' h='100%' bgGradient='linear(#441182 0%, #9828e5 57%, #b82dfd 100%)' maxW="100%" centerContent>
             <Box bg='#DAEDEC' boxShadow='dark-lg' padding='20' margin='5' rounded='lg' color='black' >
                 <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Solicitar reserva </Heading>
                 <Table variant='simple' colorScheme="black" rounded='lg' >
