@@ -23,7 +23,7 @@ const reserva = () => {
 
   const getReserva = async() => {
     try {
-      const response = await axios.get(`${process.env.SERVIDOR}/reserva`)
+      const response = await axios.get(`${process.env.API_URL}/reserva`)
       setReserva(response.data)
       console.log(response.data)
       return response
