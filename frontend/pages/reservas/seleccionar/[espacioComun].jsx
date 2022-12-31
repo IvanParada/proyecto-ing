@@ -1,8 +1,10 @@
 import React from 'react'
 import { useEffect, useState } from "react"
-import {  Table,  Heading, Container, Box, Tr, Td, Tbody, HStack, Button } from '@chakra-ui/react'
+import {  Table,  Heading, Container, Box, Tr, Td, Tbody, HStack, Button, Stack} from '@chakra-ui/react'
 import { getEspacio } from "../../../data/espacios"
 import { useRouter } from "next/router"
+import NumberInputForm from '../../../components/NumberInputForm'
+import InputForm from '../../../components/InputForm'
 
 export async function getServerSideProps(context) {
   try {
@@ -21,32 +23,65 @@ export async function getServerSideProps(context) {
   }
 }
 
+const handleChange = (e) => {
+    create_solitudReserva({
+      ...solicitudreserva,
+      [e.target.name]: e.target.value
+    })
+    console.log(e.target.name, e.target.value)
+  }
+
 const Espacios = ({data}) => {
   const router = useRouter()
   const {espacioComun} = router.query
   const [espacios] = useState(data)
 
   return (
-      <Container   w='100%' h='100%' bgGradient='linear(#0A4C48 0%, #0B403D 25%, #09736C 50%)' maxW="100%" centerContent>
+      <Container   w='100%' h='100%' bgGradient='linear(#441182 0%, #9828e5 57%, #b82dfd 100%)' maxW="100%" centerContent>
       <Box  bg='#DAEDEC' boxShadow='dark-lg' padding='10' margin='10' rounded='lg' color='black' >
-          <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}>Detalles Usuario</Heading>
+          <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}>Reservar espacio</Heading>
           <Table variant="striped" colorScheme='purple'>
               <Tbody>
               <Tr>
-                  <Td><b>ID</b></Td>
-                  <Td>{espacios._id}</Td>
-              </Tr>
-              <Tr>
-                  <Td><b>Nombres</b></Td>
+                  <Td><b>Espacio</b></Td>
                   <Td>{espacios.nombre}</Td>
               </Tr>
               </Tbody>
           </Table>
+
+          <Stack>
+
+            <InputForm
+            label="Ingresar fecha y hora"
+            handleChange={handleChange}
+            variant="flushed"
+            name="nombres" 
+            type="datetime-local" />
+          <NumberInputForm
+            step={1}
+            defaultValue={1}
+            min={1}
+            max={6}
+            variant="flushed"
+            isRequired
+            label="Seleccione cantidad de horas"
+            handleChange={handleChange}
+            type="text" />
+          <NumberInputForm
+            step={1}
+            defaultValue={1}
+            min={1}
+            max={30}
+            variant="flushed"
+            isRequired
+            label="Seleccione cantidad de personas"
+            handleChange={handleChange}
+            type="text" />
+        </Stack>
           
     <HStack  py={10}>
-      <Button w={"full"} bgGradient='linear(to-l, #7928CA, #FF0080)' _hover={{
-  bgGradient: 'linear(to-r, pink.500, purple.300)',
-}} color='white' onClick={() => router.push(`../solicitar`)}>Volver</Button>
+    <Button bgGradient='linear(to-l, #1A1A8F, #0000FF)'_hover={{ bgGradient: 'linear(to-r, blue.500, blue.300)'}} color='white' type={"submit"} my={6} > Registrar </Button>
+    <Button bgGradient='linear(to-l, #A00909, #FF0404)' _hover={{bgGradient: 'linear(to-r, red.500, red.300)'}} color='white' onClick={() => router.push(`../solicitar`)}>Cancelar</Button>
     </HStack>
     </Box>
       </Container>

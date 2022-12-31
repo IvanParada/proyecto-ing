@@ -32,7 +32,7 @@ export const espacios = () => {
                     <Td>{espacioComun.disponibilidad}</Td>
                     <Td>{espacioComun.descripcion}</Td>
                     <Td>{espacioComun.estado}</Td>
-                    <Td><Button bgGradient='linear(to-l, #000066, #6699FF)' _hover={{
+                    <Td><Button bgGradient='linear(to-l, #7928CA, #FF0080)' _hover={{
                         bgGradient: 'linear(to-r, pink.100, purple.100)',
                     }} color='white' onClick={() => router.push(`/reservas/seleccionar/${espacioComun._id}`)}>Seleccionar</Button></Td>
                 </Tr>
@@ -42,7 +42,7 @@ export const espacios = () => {
 
     return (
         <Container w='100%' h='100%' bgGradient='linear(#441182 0%, #9828e5 57%, #b82dfd 100%)' maxW="100%" centerContent>
-            <Box bg='#DAEDEC' boxShadow='dark-lg' padding='20' margin='5' rounded='lg' color='black' >
+            <Box bg='#FFF9FF' boxShadow='dark-lg' padding='20' margin='5' rounded='lg' color='black' >
                 <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Solicitar reserva </Heading>
                 <Table variant='simple' colorScheme="black" rounded='lg' >
                     <Thead>

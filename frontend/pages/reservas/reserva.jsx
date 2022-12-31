@@ -55,26 +55,23 @@ const reserva = () => {
   }
 
 
- useEffect(() => {
-    getReserva().then(res => {
-      setReserva(res.data)
-    })
-   console.log(reserva)
-  
- }, []) 
+  useEffect(() => {
+    getReserva()
+}, [])
  
   return (
-  <Container maxW="container.xl" >
+ <Container w='100%' h='100%' bgGradient='linear(#441182 0%, #9828e5 57%, #b82dfd 100%)' maxW="100%" centerContent>
+        <Box bg='#FFF9FF' boxShadow='dark-lg' padding='20' margin='5' rounded='lg' color='black' >
         <Heading as={"h1"} size={"2xl"} textAlign={"center"}> Administracion Reservas</Heading>
         <Button colorScheme="blue" mt="18" mb="18" onClick={() => router.push('./reservas')}>Agregar Reserva</Button>
         <Stack spacing={4} mt="10">
           <Table variant="simple">
             <Thead>
               <Tr>
-              <Td>Nombre Reservante</Td>
-              <Td>Nombre Espacio a Reservar</Td>
-              <Td>Fecha Reserva</Td>
-              <Td>Cantidad Personas</Td>
+              <Td><b>Nombre Reservante</b></Td>
+              <Td><b>Nombre Espacio a Reservar</b></Td>
+              <Td><b>Fecha Reserva</b></Td>
+              <Td><b>Cantidad Personas</b></Td>
               <Td></Td>
               </Tr>
             </Thead>
@@ -83,6 +80,7 @@ const reserva = () => {
             </Tbody>
           </Table>
         </Stack>
+        </Box>
         </Container>
         ) 
  
