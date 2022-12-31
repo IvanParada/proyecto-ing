@@ -5,18 +5,6 @@ const ReservaSchema =  new Schema({
         type: Date,
         required: true,
     },
-    hora_inicio:{
-        hora: {
-            type: Number,
-            min: 0,
-            max: 23
-        },
-        minutos:{
-            type: Number,
-            min:0,
-            max:59
-        },
-    },
     cant_horas:{
         type: Number,
         required: true,

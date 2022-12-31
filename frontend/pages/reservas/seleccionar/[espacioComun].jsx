@@ -5,6 +5,7 @@ import { getEspacio } from "../../../data/espacios"
 import { useRouter } from "next/router"
 import NumberInputForm from '../../../components/NumberInputForm'
 import InputForm from '../../../components/InputForm'
+import {Formik} from 'formik'
 
 export async function getServerSideProps(context) {
   try {
@@ -23,13 +24,17 @@ export async function getServerSideProps(context) {
   }
 }
 
-const handleChange = (e) => {
-    create_solitudReserva({
-      ...solicitudreserva,
-      [e.target.name]: e.target.value
+const solicitarReserva = () => {
+
+    const [reserva, createReserva] = useState({
+
+        fecha_reserva: '',
+        cant_horas:'',
+        cant_personas:''
     })
-    console.log(e.target.name, e.target.value)
-  }
+
+    const router = useRouter()
+
 
 const Espacios = ({data}) => {
   const router = useRouter()
