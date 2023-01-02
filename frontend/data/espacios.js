@@ -1,9 +1,16 @@
-import axios from "axios";
+import axios from "axios"
 
-const createEspacio = async () => {
-    const response = await axios.post(`${process.env.API_URL}/espacioComunModel`);
+const createEspacio = (espacio) => {
+    const response = axios.post(`${process.env.API_URL}/espacioComunModel`,{
+        nombre: espacio.nombre,
+        aforo: espacio.aforo,
+        disponibilidad: espacio.disponibilidad,
+        descripcion: espacio.descripcion,
+        estado: espacio.estado
+    });
     return response
 }
+
 const getEspacios = async() => {
     const response = await axios.get(`${process.env.API_URL}/espacioComunModels`);
     return response
@@ -19,8 +26,8 @@ const deleteEspacio = async (id) => {
     return response
 }
 
-const updateEspacio = (id, user) => {
-    const response = axios.put(`${process.env.API_URL}/espacioComunModels/update/${id}`, user)
+const updateEspacio = (id, espacio) => {
+    const response = axios.put(`${process.env.API_URL}/espacioComunModels/update/${id}`, espacio)
     return response
 }
 
@@ -34,6 +41,6 @@ module.exports = {
     getEspacios,
     getEspacio,
     deleteEspacio,
-    updateEspacio,
+    updateEspacio
     // login
 }
