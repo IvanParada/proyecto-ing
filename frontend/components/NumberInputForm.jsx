@@ -7,11 +7,11 @@ import {
   NumberDecrementStepper,
 } from '@chakra-ui/react'
 
-const NumberInputForm = ({ handleChange, step, defaultValue, min, max, label, name, value, variant }) => {
+const NumberInputForm = ({ handleChange, step, defaultValue, min, max, label, name, value, variant, handleBlur, placeholder }) => {
   return (
     <FormControl id={name} isRequired>
       <FormLabel>{label}</FormLabel>
-      <NumberInput step={step} defaultValue={defaultValue} min={min} max={max} handleChange={handleChange} value={value} variant={variant}>
+      <NumberInput step={step} placeholder={placeholder} defaultValue={defaultValue} min={min} max={max} onChange={handleChange} value={value} variant={variant}  onBlur={handleBlur} >
         <NumberInputField />
         <NumberInputStepper>
           <NumberIncrementStepper />
