@@ -37,15 +37,10 @@ const updateUser = (id, user) => {
 }
 
 
-const login = async(rut) => {
-    const response = await axios.post(`${process.env.API_URL}/user/login`,{rut})
-    return response
-}
 module.exports = {
     createUser,
     getUsers,
     getUser,
     deleteUsers,
     updateUser,
-    login
 }

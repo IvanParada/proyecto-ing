@@ -1,7 +1,7 @@
-import axios from "axios"
+import axios from "axios";
 
-const createEspacio = (espacio) => {
-    const response = axios.post(`${process.env.API_URL}/espacioComunModel`,{
+const createEspacioComun = async (espacio) => {
+    const response = await axios.post(`${process.env.API_URL}/espacioComunModel`,{
         nombre: espacio.nombre,
         aforo: espacio.aforo,
         disponibilidad: espacio.disponibilidad,
@@ -11,36 +11,31 @@ const createEspacio = (espacio) => {
     return response
 }
 
-const getEspacios = async() => {
+const getEspaciosComunes = async() => {
     const response = await axios.get(`${process.env.API_URL}/espacioComunModels`);
     return response
 }
 
-const getEspacio = async (id) => {
+const getSpecificEspacioComun = async (id) => {
     const response = await axios.get(`${process.env.API_URL}/espacioComunModels/search/${id}`)
     return response
 }
 
-const deleteEspacio = async (id) => {
+const deleteEspacioComun = async (id) => {
     const response = await axios.delete(`${process.env.API_URL}/espacioComunModels/delete/${id}`)
     return response
 }
 
-const updateEspacio = (id, espacio) => {
+const updateEspacioComun = (id, espacio) => {
     const response = axios.put(`${process.env.API_URL}/espacioComunModels/update/${id}`, espacio)
     return response
 }
 
 
-// const login = async(rut) => {
-//     const response = await axios.post(`${process.env.API_URL}/user/login`,{rut})
-//     return response
-// }
 module.exports = {
-    createEspacio,
-    getEspacios,
-    getEspacio,
-    deleteEspacio,
-    updateEspacio
-    // login
+    createEspacioComun,
+    getEspaciosComunes,
+    getSpecificEspacioComun,
+    deleteEspacioComun,
+    updateEspacioComun,
 }
