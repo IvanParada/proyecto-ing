@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import {useRouter} from 'next/router'
 import axios from 'axios'
-import {handleChange, onChange, onSubmit, Select, Box, Button, Container, Input, Stack, Heading, FormControl, FormLabel, option, HStack } from '@chakra-ui/react'
-import {getUser, updateUser} from '../../../data/user'
+import {Select, Box, Button, Container, Input, Stack, Heading, FormControl, FormLabel,HStack } from '@chakra-ui/react'
+import {updateUser} from '../../../data/user'
 import Swal from 'sweetalert2'
-
 export async function getServerSideProps(context){
     try{
         const response = await axios.get(`${process.env.API_URL}/userModels/search/${context.params.usuario}`)
@@ -37,6 +36,7 @@ const editar = ({data}) => {
       console.log(e.target.name, e.target.value)
   }
 
+
   const onSubmit = async (e) => {
     e.preventDefault()
     const response = await updateUser(usuario,user)
@@ -65,13 +65,13 @@ const editar = ({data}) => {
         <Box bg='#DAEDEC' padding='100' margin='10' boxShadow='dark-lg'   rounded='lg' color='black' maxW='md'>
             <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Editar Usuario</Heading>
         <Stack>
-            <FormControl isRequired>
+            <FormControl  isRequired>
                 <FormLabel>Nombres</FormLabel>
-                <Input variant='flushed'  placeholder='p. ej.: Ignacio Ignacio' type={"text"} onChange={handleChange} name={"nombres"} value={user.nombres}/>
+                <Input  variant='flushed'  placeholder='p. ej.: Ignacio Ignacio' type={"text"} onChange={handleChange} name={"nombres"} value={user.nombres}  />
             </FormControl>
             <FormControl isRequired>
                 <FormLabel>Apellidos</FormLabel>
-                <Input variant='flushed' placeholder='p. ej.: Perez Perez' type={"text"} onChange={handleChange}  name={"apellidos"} value={user.apellidos}/>
+                <Input variant='flushed' placeholder='p. ej.: Perez Perez' type={"text"} onChange={handleChange}  name={"apellidos"} value={user.apellidos} />
             </FormControl >
             <FormControl isRequired>
                 <FormLabel>RUT</FormLabel>
