@@ -5,7 +5,7 @@ const SelectFormEstado = ({label, handleChange, variant, name, placeholder,optio
   return (
     <FormControl id={name} isRequired>
         <FormLabel>{label}</FormLabel>
-        <Select variant={variant}  placeholder={placeholder} onChange={handleChange} name={name}  handleBlur={handleBlur} >
+        <Select variant={variant}  placeholder={placeholder} onChange={handleChange} name={name}  onBlur={handleBlur} >
             <option>Autorizado</option>
             <option>Restringido</option>
         </Select>

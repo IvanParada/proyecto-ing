@@ -5,7 +5,7 @@ const SelectFormTipoUsuario = ({label, handleChange, variant, name, placeholder,
   return (
     <FormControl id={name} isRequired>
         <FormLabel>{label}</FormLabel>
-        <Select variant={variant}  placeholder={placeholder} onChange={handleChange} name={name}  handleBlur={handleBlur}>
+        <Select variant={variant}  placeholder={placeholder} onChange={handleChange} name={name}  onBlur={handleBlur}>
             <option>Usuario</option>
             <option>Administrador</option>
         </Select>

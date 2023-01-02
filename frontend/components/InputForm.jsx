@@ -10,7 +10,7 @@ const InputForm = ({label, handleChange, variant, name, placeholder, type, handl
               type={type}
               onChange={handleChange}
               name={name}
-              handleBlur={handleBlur}
+              onBlur={handleBlur}
               value={value} />
     </FormControl>
   )
