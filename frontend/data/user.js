@@ -1,7 +1,13 @@
 import axios from "axios";
 
-const createUser = async () => {
-    const response = await axios.post(`${process.env.API_URL}/userModel`);
+const createUser = async (user) => {
+    const response = await axios.post(`${process.env.API_URL}/userModel`,{
+        nombres:user.nombres,
+        apellidos: user.apellidos,
+        rut: user.rut,
+        estado: user.estado,
+        tipoUsuario: user.tipoUsuario
+    });
     return response
 }
 const getUser = async() => {
@@ -20,7 +26,13 @@ const deleteUsers = async (id) => {
 }
 
 const updateUser = (id, user) => {
-    const response = axios.put(`${process.env.API_URL}/userModels/update/${id}`, user)
+    const response = axios.put(`${process.env.API_URL}/userModels/update/${id}`,{
+        nombres:user.nombres,
+        apellidos: user.apellidos,
+        rut: user.rut,
+        estado: user.estado,
+        tipoUsuario: user.tipoUsuario
+    });
     return response
 }
 
