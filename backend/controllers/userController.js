@@ -63,7 +63,7 @@ const updateUser = (req, res) => {
     const {id} = req.params;
     userModel.findByIdAndUpdate(id, req.body, (err, userModels) => {
         if(err){
-            return res.status(400).send({ message: "Error al obtener el usuario"})
+            return res.status(400).send({ message: "Error al actualizar el usuario"})
         }
         if(!userModels){
             return res.status(404).send({ message:  "Usuario no encontrado"})
@@ -77,7 +77,7 @@ const deleteUser = (req, res) => {
     const {id} = req.params;
     userModel.findByIdAndDelete(id ,(err, userModels) => {
         if(err){
-            return res.status(400).send({ message: "Error al obtener el usuario"})
+            return res.status(400).send({ message: "Error al eliminar el usuario"})
         }
         if(!userModels){
             return res.status(404).send({ message:  "Usuario no encontrado"})
