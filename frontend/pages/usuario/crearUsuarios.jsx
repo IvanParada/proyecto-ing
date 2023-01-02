@@ -17,6 +17,7 @@ const CrearUsuarios = () => {
         estado:'',
         tipoUsuario:''
     })
+
     const router = useRouter()
 
     return(
@@ -29,7 +30,6 @@ const CrearUsuarios = () => {
             onSubmit={(values) => {
                 createUser(values).then(res => {
                     router.push('../usuarios')
-                    console.log(res.status)
                 })
             }}
         >

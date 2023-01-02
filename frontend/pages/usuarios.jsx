@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import {Button, Box,Container, Input, Stack, Text, HStack, Heading, Table, Thead, Tbody, Tfoot,Tr, Th, Td, } from '@chakra-ui/react'
+import {Button, Box,Container,Heading, Table, Thead,Tr,Td} from '@chakra-ui/react'
 import axios from 'axios'
 import { useRouter } from "next/router"
 

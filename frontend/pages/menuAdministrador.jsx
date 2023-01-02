@@ -46,10 +46,10 @@ export default function Home() {
                 Espacios Comunes
             </MenuButton>
             <MenuList>
-                <MenuItem _hover={{
+                <MenuItem onClick={() => router.push(`/espacioComun/espacios`)} _hover={{
     bgGradient: 'linear(to-r, pink.100, purple.100)',
   }}  >Ver espacios comunes</MenuItem>
-                <MenuItem _hover={{
+                <MenuItem onClick={() => router.push(`/espacioComun/crearEspacios`)}  _hover={{
     bgGradient: 'linear(to-r, pink.100, purple.100)',
   }} >Crear espacio común</MenuItem>
             </MenuList>
@@ -60,7 +60,7 @@ export default function Home() {
                 Reservas
             </MenuButton>
             <MenuList>
-                <MenuItem _hover={{
+                <MenuItem onClick={() => router.push(`/reservas/reserva`)} _hover={{
     bgGradient: 'linear(to-r, pink.100, purple.100)',
   }} >Ver reserva</MenuItem>
             </MenuList>
