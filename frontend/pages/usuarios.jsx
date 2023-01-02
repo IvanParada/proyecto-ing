@@ -41,6 +41,9 @@ const Usuarios = () => {
         <Heading bgGradient='linear(to-l, #181515, #383636, #181515)' bgClip='text' textAlign={"center"} my={10}> Visualizar Usuarios </Heading>
         <Button margin='5' bgGradient='linear(to-l, #7928CA, #FF0080)' _hover={{
     bgGradient: 'linear(to-r, pink.500, purple.500)',
+  }} color='white' onClick={() => router.push('/menuAdministrador') }>Panel Administrador</Button>
+        <Button margin='5' bgGradient='linear(to-l, #7928CA, #FF0080)' _hover={{
+    bgGradient: 'linear(to-r, pink.500, purple.500)',
   }} color='white' onClick={() => router.push('/usuario/crearUsuarios') }>Crear Usuario</Button>
         <Table variant='simple' colorScheme="black"  rounded='lg' >
             <Thead>
