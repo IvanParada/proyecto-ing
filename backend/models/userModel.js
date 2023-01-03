@@ -21,7 +21,7 @@ const UserSchema = new Schema({
         required:true 
     },
     tipoUsuario:{
-        type:String,
+        type: String,
         enum:['Usuario','Administrador'],
         required:true
     }

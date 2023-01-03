@@ -7,6 +7,7 @@ import NumberInputForm from '../../../components/NumberInputForm'
 import InputForm from '../../../components/InputForm'
 import {Formik} from 'formik'
 
+
 export async function getServerSideProps(context) {
   try {
       const response = await getEspacio(context.query.espacioComun)
@@ -94,5 +95,5 @@ const Espacios = ({data}) => {
 
 }
 
-
-export default Espacios
+}
+export default solicitarReserva

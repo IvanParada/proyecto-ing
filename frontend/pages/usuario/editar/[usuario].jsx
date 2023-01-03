@@ -46,16 +46,7 @@ const editar = ({data}) => {
         title: 'Usuario actualizado',
         showConfirmButton: true,
         text: 'El usuario se actualizó correctamente',
-        width: 600,
-        padding: '3em',
-        color: '#716add',
-        background: '#fff url(/images/trees.png)',
-        backdrop: `
-          rgba(0,0,123,0.4)
-          url("https://i.pinimg.com/originals/a6/b7/15/a6b715ecba7ebca3dae9adb2c2daf27e.gif")
-          left top
-          no-repeat
-        `
+
       }).then(() => {
         router.push('/usuarios')
       })
@@ -65,16 +56,7 @@ const editar = ({data}) => {
         title: 'Error',
         showConfirmButton: true,
         text:'Ocurrió un error al actualizar el usuario',
-        width: 600,
-        padding: '3em',
-        color: '#716add',
-        background: '#fff url(/images/trees.png)',
-        backdrop: `
-          rgba(0,0,123,0.4)
-          url("https://i.pinimg.com/originals/f2/3f/56/f23f564c8f91d735ba13e8cce53e980f.gif")
-          left top
-          no-repeat
-        `
+
         
       })
     }
